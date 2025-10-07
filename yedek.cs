@@ -155,9 +155,7 @@ public class Program
             Console.WriteLine("Sayı 10 dan Küçük Denemeye Devam Et"); }
             
             }
-        }
-    }*/
-
+            
         char secim;
         do
         {
@@ -181,3 +179,79 @@ public class Program
         } while (secim == 'E' || secim == 'e');
         }
     }
+    
+        // Eğer sayı 5 olursa, özel bir mesaj verip döngüyü tamamen bitiriyorum.
+        Console.WriteLine("1. Örnek: break kullanımı");
+        for (int i = 1; i <= 10; i++)
+        {
+            if (i == 5)
+            {
+                Console.WriteLine("5'e gelindi, döngüden çıkılıyor...");
+                break; // 5'e gelince döngüyü sonlandır
+            }
+
+            Console.WriteLine(i);
+        }
+
+        Console.WriteLine();
+
+        // continue kullanarak çift sayıları atlıyorum.
+        Console.WriteLine("2. Örnek: continue kullanımı");
+        for (int i = 1; i <= 10; i++)
+        {
+            if (i % 2 == 0)
+            {
+                continue; // çift sayılar atlanıyor
+            }
+
+            Console.WriteLine(i); // sadece tek sayılar yazdırılıyor
+        }
+
+        Console.WriteLine(); // Boşluk bırakıyorum
+        
+        // Sayaç 3’e ulaşana kadar goto komutuyla sürekli aynı yere dönüp ekrana yazdırıyorum.
+        Console.WriteLine("goto kullanımı");
+
+        int sayac = 0;
+
+    basadon:
+        Console.WriteLine("Sayaç: " + sayac);
+        sayac++;
+
+        if (sayac < 3)
+        {
+            goto basadon; // sayaç 3 olana kadar aynı etikete geri dön
+        }
+
+        Console.WriteLine("goto örneği bitti."); // sayaç 3 olduğunda işlem bitiyor
+    }
+
+        // Kullanıcıdan kaç terim istediğini alıyorum
+        Console.Write("Fibonacci serisinin kaç terimini görmek istiyorsunuz? N : ");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        // İlk iki terimi başlangıç olarak tanımlıyorum
+        int a = 1, b = 1;
+
+        Console.WriteLine("\nFibonacci Serisi'nin ilk " + n + " terimi:");
+
+        // Terim sayısı en az 1 ise ilk terimi yazdır
+        if (n >= 1)
+            Console.Write(a + " ");
+
+        // Terim sayısı en az 2 ise ikinci terimi de yazdır
+        if (n >= 2)
+            Console.Write(b + " ");
+
+        // 3. terimden itibaren hesaplamaya başlıyorum
+        for (int i = 3; i <= n; i++)
+        {
+            int c = a + b;     // önceki iki sayının toplamı
+            Console.Write(c + " ");
+            a = b;             // a bir sonraki adıma taşınır
+            b = c;             // b de bir sonraki adıma taşınır
+        }
+
+        Console.WriteLine();
+    }
+}
